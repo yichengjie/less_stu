@@ -1,0 +1,85 @@
+@import "../../../lib/zless/reset.less" ;
+@import "../../../lib/zless/z.less" ;
+@header_control-width:36px;
+//重置页面的基本样式
+.reset-normalize() ;
+body{
+    font-size: 12px;
+    font-family: 'lucida grande',Helvetica,Tahoma,Verdana,Arial,Microsoft YaHei,simsun,sans-serif;;
+}
+.query_section{
+    background: #fff url("../images/tui_bg/tui_div4_bg.png") repeat-x bottom;
+    border-bottom: 1px solid #9ea7ab;
+    box-shadow: 0 0 2px 0;
+}
+
+.btn{
+    display: inline-block;
+    padding: 5px 12px;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #B6B6B6;
+    border-radius: 4px;
+    color: black;
+}
+
+.btn-success{
+    background-color: #91BC37;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+}
+.header_control{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: @header_control-width;
+    .left{
+      .fl() ;
+    }
+    dl{
+        height: @header_control-width;
+        line-height: @header_control-width;
+        margin: 0;
+    }
+    dt,dd{
+        .fl() ;
+    }
+    dt{
+        padding: 0 12px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    dd{
+        color: #4274C2;
+        margin-left: 10px;
+    }
+    .right{
+        .fr() ;
+        margin: 4px 10px 3px 0;
+
+    }
+    .ul{
+        border: 1px solid red;
+        height: @header_control-width;
+        line-height: @header_control-width;
+
+    }
+    li{
+        .fl() ;
+        margin: 0 3px;
+    }
+
+}
+
+input{
+    background-image: url("");
+}
+
+
