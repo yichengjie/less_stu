@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var currying = function (fn) {
+        var args = [] ;
+        return function () {
+            if(arguments.length ===0){
+                return fn.apply(this,args) ;
+            }else{
+                [].push.apply(args,arguments) ;
+                return arguments.callee ;
+            }
+        }
+    }
+
+    var cost = function () {
+        var money = 0 ;
+        for(var i = 0, l = arguments.length ; i< l ; i++){
+            money += arguments[i] ;
+        }
+        return money ;
+    }
+
+    var cost_a = currying(cost) ;
+
+    var t = cost_a(100)
+    t(200)
+    t(300)
+    console.info(cost_a()) ;
+
+
+    function calleeDemo() {
+        alert(arguments.callee);
+    }
+    calleeDemo();
+</script>
+
+</body>
+</html>

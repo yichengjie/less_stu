@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    var Type = {} ;
+    for(var i = 0,type ; type=['String','Array','Number'][i++];){
+       // (function a (type){
+            Type['is'+type] = function (obj) {
+                console.info('type : ' + type)
+                var str = Object.prototype.toString.call(obj) ;
+                var str2 = '[object '+type+']' ;
+                console.info('str : ' + str +'    -   str2 : ' + str2)
+                return  str === str2 ;
+            }
+        //})(type) ;
+    }
+
+    var t1 = Type.isArray([]) ;
+    var t2 = Type.isString('str') ;
+    console.info(t1) ;
+    console.info(t2) ;
+
+    var Extent = function () {
+        var value = 0 ;
+        return {
+            call: function () {
+                value ++ ;
+                console.info('value : ' + value)
+            }
+        } ;
+    }
+
+    var extent = Extent() ;
+
+    console.info(extent)
+    extent.call() ;
+    extent.call() ;
+    extent.call() ;
+
+
+    var getSingle = function (fn) {
+        var ret ;
+        return function () {
+           //console.info('this : ' , this) ;
+            //这里的this为window对象
+            return ret || (ret = fn.apply(this,arguments)) ;
+        }
+    }
+
+    var getScript = getSingle(function () {
+        return document.createElement('script') ;
+    }) ;
+
+    var script1 = getScript() ;
+    var script2 = getScript() ;
+
+    console.info( 'script1 === script2 : ' +  (script1 === script2)  ) ;
+
+    
+</script>
+
+</body>
+</html>
